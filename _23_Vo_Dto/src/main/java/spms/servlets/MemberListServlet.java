@@ -9,6 +9,8 @@ import java.sql.Statement;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +27,8 @@ public class MemberListServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		System.out.println("MemberListServlet::doGet() 호출");
+		
 		Connection conn = null;			// DB 서버와의 연결 객체
 		Statement stmt = null;			// sql문
 		ResultSet rs = null;			// Select문의 결과
@@ -83,6 +87,7 @@ public class MemberListServlet extends HttpServlet{
 	}
 
 }
+
 
 
 

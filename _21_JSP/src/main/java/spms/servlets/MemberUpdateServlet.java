@@ -21,6 +21,8 @@ public class MemberUpdateServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("MemberUpdateServlet::doGet() 호출");
+		
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -78,8 +80,10 @@ public class MemberUpdateServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 한글이 깨지지 않기 위해 값을 꺼내기 전에 설정
-		req.setCharacterEncoding("UTF-8");
+		System.out.println("MemberUpdateServlet::doPost() 호출");
+		
+		// CharacterEncodingFilter로 전처리 했으므로 이제 안해도 됨
+		//req.setCharacterEncoding("UTF-8");
 		
 		Connection conn = null;
 		PreparedStatement stmt = null;
@@ -110,6 +114,7 @@ public class MemberUpdateServlet extends HttpServlet{
 		}
 	}
 }
+
 
 
 
