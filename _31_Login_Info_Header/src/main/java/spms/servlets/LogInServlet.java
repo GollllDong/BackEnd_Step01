@@ -18,7 +18,7 @@ import spms.vo.Member;
 
 @SuppressWarnings("serial")
 @WebServlet("/auth/login")
-public class LogInServlet extends HttpServlet{
+public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

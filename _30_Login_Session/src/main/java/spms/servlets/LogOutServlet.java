@@ -1,5 +1,5 @@
 package spms.servlets;
 
-public class LogOutServlet {
+public class LogoutServlet {
 
 }

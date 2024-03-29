@@ -12,7 +12,7 @@
 	</context-param>
 	<context-param>
 		<param-name>url</param-name>
-		<param-value>jdbc:mysql://localhost:4306/studydb</param-value>
+		<param-value>jdbc:mysql://localhost:3306/studydb</param-value>
 	</context-param>
 	<context-param>
 		<param-name>username</param-name>
@@ -26,7 +26,7 @@
 	<!-- 필터 선언 -->
 	
 	<!-- 필터 매핑 -->
-
+	
 	<!-- 서블릿 선언 -->
 	<servlet>
 		<servlet-name>AppInitServlet</servlet-name>
@@ -35,6 +35,7 @@
 	</servlet>
 	
 	<!-- 서블릿과 주소를 매핑 -->
+
 
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
