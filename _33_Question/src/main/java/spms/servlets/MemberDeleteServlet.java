@@ -18,38 +18,40 @@ import javax.servlet.http.HttpServletResponse;
 public class MemberDeleteServlet extends HttpServlet {
 
 	@Override
-	public void doGet(
-			HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("MemberDeleteServlet::doGet() 호출");
-		
+
 		Connection conn = null;
 		Statement stmt = null;
 
 		try {
 			ServletContext sc = this.getServletContext();
 			Class.forName(sc.getInitParameter("driver"));
-			conn = DriverManager.getConnection(
-						sc.getInitParameter("url"),
-						sc.getInitParameter("username"),
-						sc.getInitParameter("password")); 
+			conn = DriverManager.getConnection(sc.getInitParameter("url"), sc.getInitParameter("username"),
+					sc.getInitParameter("password"));
 			stmt = conn.createStatement();
-			stmt.executeUpdate(
-					"DELETE FROM members WHERE mno=" + 
-					request.getParameter("no"));
-			
+			stmt.executeUpdate("DELETE FROM members WHERE mno=" + request.getParameter("no"));
+
 			response.sendRedirect("list");
-			
+
 		} catch (Exception e) {
-			//throw new ServletException(e);
+			// throw new ServletException(e);
 			e.printStackTrace();
 			request.setAttribute("error", e);
 			RequestDispatcher rd = request.getRequestDispatcher("/Error.jsp");
 			rd.forward(request, response);
-			
+
 		} finally {
-			try {if (stmt != null) stmt.close();} catch(Exception e) {}
-			try {if (conn != null) conn.close();} catch(Exception e) {}
+			try {
+				if (stmt != null)
+					stmt.close();
+			} catch (Exception e) {
+			}
+			try {
+				if (conn != null)
+					conn.close();
+			} catch (Exception e) {
+			}
 		}
 
 	}
