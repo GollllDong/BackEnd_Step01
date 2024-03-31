@@ -19,7 +19,7 @@ public class HelloWorld implements Servlet {
 	ServletConfig config;
 	
 	/* 톰캣이 종료될 때 만들어진 서블릿 객체를 소멸시킨다.
-	 * desoty()는 객체가 소멸될 때 호출되는 메서드
+	 * destroy()는 객체가 소멸될 때 호출되는 메서드
 	 * */
 	@Override
 	public void destroy() {

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		/* 브라우저가 보내온 데이터가 한글인 경
+		/* 브라우저가 보내온 데이터가 한글인 경우
 		 * 값을 꺼내기 전에 문자셋 설정을 해야 한다.
 		 * get요청은 tomcat 설정파일에
 		 * post요청은 이곳에서 처리한다.
