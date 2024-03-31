@@ -9,6 +9,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 
+@SuppressWarnings("serial")
 @WebServlet("/calc")		// 객체로 만들어져서 calc를 사용중인곳에 넘겨줌.
 public class CalculatorServlet extends GenericServlet {
 
