@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 import spms.vo.Member;
 
 @SuppressWarnings("serial")
-@WebServlet("/auth/login")
+@WebServlet("/auth/Login")
 public class LogInServlet extends HttpServlet{
 
 	@Override
