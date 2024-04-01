@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 		urlPatterns= {"/member/update"},
 		initParams = {
 				@WebInitParam(name="driver", value="com.mysql.cj.jdbc.Driver"),
-				@WebInitParam(name="url", value="jdbc:mysql://localhost:4306/studydb"),
+				@WebInitParam(name="url", value="jdbc:mysql://localhost:3306/studydb"),
 				@WebInitParam(name="username", value="study"),
 				@WebInitParam(name="password", value="study")
 		}
