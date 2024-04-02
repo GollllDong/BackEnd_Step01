@@ -20,7 +20,7 @@ import spms.vo.Member;
 
 @WebServlet("/member/update")
 @SuppressWarnings("serial")
-public class MemberUpdateServlet extends HttpServlet{
+public class MemberUpdateServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -28,23 +28,26 @@ public class MemberUpdateServlet extends HttpServlet{
 
 		try {
 			ServletContext sc = this.getServletContext();
-			MemberDao memberDao = (MemberDao)sc.getAttribute("memberDao");
+			MemberDao memberDao = (MemberDao) sc.getAttribute("memberDao");
 
-		      Member member = memberDao.selectOne(
-		          Integer.parseInt(req.getParameter("no")));
+			Member member = memberDao.selectOne(Integer.parseInt(req.getParameter("no")));
 
-		      req.setAttribute("member", member);
+			req.setAttribute("member", member);
 			
-			RequestDispatcher rd = req.getRequestDispatcher(
-					"/member/MemberUpdateForm.jsp");
-			rd.forward(req, resp);			
-			
+			req.setAttribute("viewUrl", "/member/MemberUpdateForm.jsp");
 
-		}catch(Exception e) {
+			/*
+			RequestDispatcher rd = req.getRequestDispatcher("/member/MemberUpdateForm.jsp");
+			rd.forward(req, resp);
+			*/
+		} catch (Exception e) {
+			throw new ServletException(e);
+			/*
 			e.printStackTrace();
 			req.setAttribute("error", e);
 			RequestDispatcher rd = req.getRequestDispatcher("/Error.jsp");
 			rd.forward(req, resp);
+			*/
 		}
 	}
 
@@ -54,32 +57,29 @@ public class MemberUpdateServlet extends HttpServlet{
 
 		try {
 			ServletContext sc = this.getServletContext();
-			MemberDao memberDao = (MemberDao)sc.getAttribute("memberDao");
+			MemberDao memberDao = (MemberDao) sc.getAttribute("memberDao");
 
+			Member member = (Member)req.getAttribute("member");
+			memberDao.update(member);
 			
-		      memberDao.update(new Member()
-				      .setNo(Integer.parseInt(req.getParameter("no")))
-				      .setName(req.getParameter("name"))
-				      .setEmail(req.getParameter("email")));			
-					
+			req.setAttribute("viewUrl",  "redirect:list.do");
+			
+			/*
+			memberDao.update(new Member()
+					.setNo(Integer.parseInt(req.getParameter("no")))
+					.setName(req.getParameter("name"))
+					.setEmail(req.getParameter("email")));
+
 			resp.sendRedirect("list");
-			
-		}catch(Exception e) {
+			*/
+		} catch (Exception e) {
+			throw new ServletException(e);
+			/*
 			e.printStackTrace();
 			req.setAttribute("error", e);
 			RequestDispatcher rd = req.getRequestDispatcher("/Error.jsp");
 			rd.forward(req, resp);
+			*/
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
