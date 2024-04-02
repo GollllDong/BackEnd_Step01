@@ -43,7 +43,7 @@ public class MemberListServlet extends HttpServlet{
 			// 메모리에 클래스 로딩
 //			DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
 //			conn = DriverManager.getConnection(
-//					"jdbc:mysql://localhost:4306/studydb",	// JDBC url
+//					"jdbc:mysql://localhost:3306/studydb",	// JDBC url
 //					"study",								// id
 //					"study");								// password
 			stmt = conn.createStatement();
@@ -87,7 +87,6 @@ public class MemberListServlet extends HttpServlet{
 	}
 
 }
-
 
 
 
