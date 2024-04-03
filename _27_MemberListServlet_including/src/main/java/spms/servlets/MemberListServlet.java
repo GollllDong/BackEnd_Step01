@@ -63,7 +63,7 @@ public class MemberListServlet extends HttpServlet{
 			// MemberListServlet객체에서 MemberList.jsp로 
 			// request객체와 response객체를 전달한다.
 			RequestDispatcher rd = req.getRequestDispatcher(
-						"/membe/MemberList.jsp");
+						"/member/MemberList.jsp");
 			
 			res.setContentType("text/html;charset=UTF-8");
 			/*

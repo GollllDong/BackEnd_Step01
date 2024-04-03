@@ -16,7 +16,7 @@
 		for(Member member : members){
 	%>
 			<%=member.getNo() %>,
-			<a href='update?no=<%=member.getNo() %>'><%=member.getName() %></a>,
+			<a href='update?no=<%=member.getNo() %>'>  <%=member.getName() %>  </a>,
 			<%=member.getEmail() %>,
 			<%=member.getCreatedDate() %>
 			<a href='delete?no=<%=member.getNo() %>'>[삭제]</a><br>
