@@ -32,7 +32,7 @@ SELECT pname 교수, SECTION 학과
 
 -- 7) 지위별로 교수의 정보를 검색하라
 SELECT * from PROFESSOR;
-SELECT pno 교번, pname 성함, ORDERS 직위
+SELECT pno 교번, pname 성함, ORDERS 직위ㅇ 
  from PROFESSOR
  ORDER BY orders desc;
 
