@@ -45,7 +45,7 @@
     		username="study"
     		password="study"
     		driverClassName="com.mysql.cj.jdbc.Driver"
-    		url="jdbc:mysql://localhost:4306/studydb"
+    		url="jdbc:mysql://localhost:3306/studydb"
     		closeMethod="close"
     	/>
     
