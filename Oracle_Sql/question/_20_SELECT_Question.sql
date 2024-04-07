@@ -38,6 +38,17 @@ SELECT c.CNAME 과목, s.result 기말점수
 
 
 -- 7) 화학과 1학년 학생의 일반화학 기말고사 점수를 검색한다
-
+SELECT s.major 학과, s.syear 학년, c.cname 과목, sc.result 점수
+ from student s
+ NATURAL JOIN score sc
+ NATURAL JOIN course c
+ WHERE s.syear = 1
+ AND c.cname = '일반화학';
 
 -- 8) 화학과 1학년 학생이 수강하는 과목을 검색한다
+SELECT major 학과, syear 학년, CNAME 과목
+ from student 
+ join score using(sno)
+ join course using(cno)
+ WHERE syear = 1
+ AND major = '화학';

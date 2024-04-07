@@ -11,4 +11,8 @@ SELECT p.SECTION 학과, c.CNAME 과목이름, p.PNAME 교수
  ORDER BY p.SECTION;
 
 
--- 3) 이번 학기 등록된 모드 과목과 담당 교수의 학점 순으로 검색한다
+-- 3) 이번 학기 등록된 모든 과목과 담당 교수의 학점 순으로 검색한다
+SELECT p.pname 교수 , c.cname "등록된 과목", c.st_num 학점
+ from PROFESSOR p, COURSE c
+ WHERE p.pno = c.pno
+ ORDER BY p.pname;
