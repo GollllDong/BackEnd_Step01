@@ -22,3 +22,8 @@ SELECT st.major 과, st.syear 학년, sc.result 기말성적
 
 
 -- 6) 모든 교수의 명단과 담당 과목을 검색한다(단 모든 과목도 같이 검색한다)
+select pname,section,cname
+from professor p 
+full outer join course c 
+on p.pno=c.pno
+order by pname;
