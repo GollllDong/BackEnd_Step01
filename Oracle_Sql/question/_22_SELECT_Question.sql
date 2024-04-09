@@ -12,13 +12,26 @@ SELECT st.major 과, st.syear 학년, sc.result 기말성적
  ORDER BY st.syear;
 
 -- 3) 유기화학과목 수강생의 기말고사 시험점수를 검색하라
-
+SELECT sname 이름, cname 수강과목, result 시험점수
+ from STUDENT st
+ NATURAL JOIN COURSE c
+ NATURAL JOIN SCORE sc
+ WHERE c.cname = '유기화학';
 
 -- 4) 화학과 학생이 수강하는 과목을 담당하는 교수의 명단을 검색하라
-
+SELECT SNAME 이름, cname 과목, pname 교수
+ from STUDENT st
+ NATURAL JOIN COURSE c
+ NATURAL JOIN SCORE sc
+ NATURAL JOIN PROFESSOR p
+ WHERE major = '화학';
 
 -- 5) 모든 교수의 명단과 담당 과목을 검색한다
-
+SELECT pname 이름, SECTION 분야, cname "담당 과목"
+ from PROFESSOR pr
+ LEFT OUTER JOIN COURSE c
+ on pr.PNO = c.PNO
+ ORDER BY pname;
 
 
 -- 6) 모든 교수의 명단과 담당 과목을 검색한다(단 모든 과목도 같이 검색한다)
