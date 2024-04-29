@@ -171,8 +171,20 @@ SELECT no, TO_CHAR(hdate, 'YYYY-MM-DD:HH24:MI:SS')
 
 
 --CHAR 와 VARCHAR2 의 차이점을 알아보자
+create table comp (
+  co1 char(4),
+  co2 VARCHAR2(4)
+);
 
+insert INTO comp VALUES('AA','AA');
+insert INTO comp VALUES('AAAA','AAAA');
+select * from comp;
 
+SELECT * from comp where co1 = 'AA';
+
+SELECT * from comp where co2 = 'AA';
+
+SELECT * from comp where co1=co2;
 
 -- 아래 2개는 서로 다른 데이터로 판단한다
 -- co1 CHAR(4)     'AA'   AA__
@@ -181,8 +193,15 @@ SELECT no, TO_CHAR(hdate, 'YYYY-MM-DD:HH24:MI:SS')
 
 -- DATE 타입을 이해해보자
 
+CREATE table hd (
+  no NUMBER,
+  hdate DATE
+);
 
+INSERT INTO hd VALUES(1, sysdate);
+SELECT * from hd;
 
+SELECT no, TO_CHAR(hdate, 'YYYY/MM/DD') from hd;
 
 -- 연월일은 같지만 시분초가 다르므로 검색되지 않는다
 -- 범위 검색을 해야 한다
